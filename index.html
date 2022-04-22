@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Weather-Forcast</title>
+</head>
+<main>
+<!--========================================= Dark Theme ==============================================================================-->
+    <div class="btns">
+        <div class="container2">
+            <input type="checkbox" id="toggle">
+            </div>
+        <script>
+    alert("Click on the switch in top right corner");       document.getElementById("toggle").addEventListener("click", function(){
+                document.getElementsByTagName('body','main')[0].classList.toggle("dark-theme");
+            });
+
+        </script>
+<!-- ========================================================================================================================================= -->
+<!-- =================== font sizer ====================-->
+            <button class="plus">+</button>    
+            <button class="minus">-</button>
+    </div>
+<!-- =================================================== -->
+<!-- ===================== Feuille ===================== -->
+    <div id="parent"><h2></h2></div> 
+    <div id="leaf" class="child">🍁</div>
+<!-- =================================================== -->
+<!-- ======================Time/Date==================== -->
+<div class="date-container">
+    <div class="time" id="time"><span id="am-pm"></span></div>
+    <div class="date" id="date">Monday, 25 May</div>  
+    <div class="others" id="current-weather-items"></div>
+</div>
+<!-- ============================================== -->
+<body onload="DefaultScreen()">
+<!-- ============================================== -->
+
+<!-- ||infos de gauche sous lheure|| -->
+
+<div class="current-info">
+    <div class="date-container">
+        <div class="others" id="current-weather-items">
+        
+            <div class="weather-item">
+                <div>Humidity</div>
+                <div>89%</div>
+            </div>
+
+            <div class="weather-item">
+                <div>Pressure</div>
+                <div>1015</div>
+            </div>
+
+            <div class="weather-item">
+                <div>Wind Speed</div>
+                <div>3.58</div>
+            </div>
+
+            <div class="weather-item">
+                <div>Sunrise</div>
+                <div>08:16 am</div>
+            </div>
+
+            <div class="weather-item">
+                <div>Sunset</div>
+                <div>17:51 pm</div>
+            </div>
+    
+        </div>
+    </div>
+</div>
+<!-- ========================================= Time zone Europe =================== -->
+<!-- <img src="https://img.icons8.com/clouds/100/4a90e2/marker.png"/>  -->
+<div class="place-container">
+    <div class="time-zone" id="time-zone">Europe/Paris</div>
+        <div id="country" class="country">48.8669N 2.3953E</div>
+    </div>
+</div>
+<!-- =========================================================================== -->
+
+
+<!-- ============================ Tittle ===========================================-->
+        <h3 class="span loader">
+            <span class='m'>W</span>
+            <span class='m'>E</span>
+            <span class='m'>A</span>
+            <span class='m'>T</span>
+            <span class='m'>H</span>
+            <span class='m'>E</span>
+            <span class='m'>R</span>
+            <span class='m'>-</span>
+            <!-- <span class='m'>&nbsp;</span>
+            <span class='m'></span>
+            <span class='m'></span> -->
+            <!-- <span class='m'>&nbsp;</span> -->
+            <span class='m'>F</span>
+            <span class='m'>O</span>
+            <span class='m'>R</span>
+            <span class='m'>C</span>
+            <span class='m'>A</span>
+            <span class='m'>S</span>
+            <span class='m'>T</span>
+            <span class='m'>&nbsp;</span>
+            <span class='m'>P</span>
+            <span class='m'>R</span>
+            <span class='m'>O</span>
+            <span class='m'>J</span>
+            <span class='m'>E</span>
+            <span class='m'>C</span>
+            <span class='m'>T</span>
+        </h3>
+<!-- ==================================================================================== -->
+<!-- =========================================== Form city Input ======================== -->
+<center>
+    <h1>Matrice Linkstart 2022</h1>
+        <p id="inputContainer">
+            <input type="text" id="cityInput"><!--<img src="https://img.icons8.com/plasticine/64/000000/create-new.png"/> -->
+            <button class="ripple" type="button" onclick="GetInfo()">&#9925;&#127809;&#127810;</button>
+        </p>
+    <h2 id="cityName"></h2>
+    <form method="post"></form>   
+</center>
+            <!-- <p>
+                <label for="pays">Howw many days</label><br />
+                <select name="nmbr_of" id="Days">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                        <option value="">5</option>
+                </select>
+            </p> -->
+        
+
+<footer>
+<!-- <div id = "weatherContainer"> -->
+        <div id="iconsContainer">    
+            <div class = "icons">
+                <p class="weather" id="day1"></p>
+                <div class="image"><img src="neige-légère.gif" class="imgClass" id="img1"></div>
+                <p class="minValues" id="day1Min">Loading...</p>
+                <p class="maxValues" id="day1Max">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day2"></p>
+                <div class="image"><img src=".png" class="imgClass" id="img2"></div>
+                <p class="minValues" id="day2Min">Loading...</p>
+                <p class="maxValues" id="day2Max">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day3"></p>
+                <div class="image"><img src=".png" class="imgClass" id="img3"></div>
+                <p class="minValues" id="day3Min">Loading...</p>
+                <p class="maxValues" id="day3Max">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day4"></p>
+                <div class="image"><img src=".png" class="imgClass" id="img4"></div>
+                <p class="minValues" id="day4Min">Loading...</p>
+                <p class="maxValues" id="day4Max">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day5"></p>
+                <div class="image"><img src=".png" class="imgClass" id="img5"></div>
+                <p class="minValues" id="day5Min">Loading...</p>
+                <p class="maxValues" id="day5Max">Loading...</p>
+            </div>
+            <div class="person">
+            <div class = "icons">
+                <p class="weather" id="day6"></p>
+                <div class="image"><img src="eve.png" class="imgClass" id="img"></div>
+                <p class="minValues" id="day5Min">METEO</p>
+                <p class="maxValues" id="day5Max">France</p></div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- =============================================================== -->
+<script src="main.js"></script>
+</body>
+</main>
+</html>
